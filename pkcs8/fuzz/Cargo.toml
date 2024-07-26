@@ -1,0 +1,22 @@
+[package]
+name = "pkcs8-fuzz"
+version = "1.0.0"
+publish = false
+edition = "2021"
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+
+[dependencies.pkcs8]
+path = ".."
+features = ["pem", "std"]
+
+[[bin]]
+name = "pkcs8_private_key"
+path = "fuzz_targets/pkcs8_private_key.rs"
+test = false
+doc = false
+bench = false
