@@ -1,0 +1,21 @@
+[package]
+name = "pem-rfc7468-fuzz"
+version = "1.0.0"
+publish = false
+edition = "2021"
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+
+[dependencies.pem-rfc7468]
+path = ".."
+
+[[bin]]
+name = "pem-fuzz"
+path = "fuzz_targets/pem-fuzz.rs"
+test = false
+doc = false
+bench = false
